@@ -1,0 +1,50 @@
+/* Written by: Haley Chen */
+
+#menu_header { 
+	background-color: #093A8C;
+	height: 75px;
+}
+
+#menu_logo {
+	float: left;
+	width: 250px;
+	height: 75px;
+	background-image: url('peanut_hotel_logo.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#menu_navigate {
+	background-color: #EBEBEB;
+}
+
+ul {
+	list-style-type: none;
+	width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+	float: left;
+}
+
+li a {
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #4286f4;
+}
+
+#guest_info {
+	color: white;
+	float: right;
+	text-align: right;
+	padding-right: 10px;
+}

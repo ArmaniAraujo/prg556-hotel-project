@@ -1,0 +1,50 @@
+/* Universal css for tables */
+
+* {
+	font-family: Geneva, sans-serif;
+}
+
+.tables {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border: 1px solid;
+	
+}
+
+table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+
+th, td {
+	border-collapse: collapse;
+	
+}
+
+th {
+	background-color:#4286f4;
+	color: white;
+	border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+	width: 400px; 
+	text-align: center;
+	border-bottom: 1px solid black;
+	border-collapse: collapse;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	
+}
+input {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2;
+	}

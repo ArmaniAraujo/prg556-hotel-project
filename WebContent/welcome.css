@@ -1,0 +1,26 @@
+.main {
+	background-image: url("hotel_2.png");
+	background-repeat: no-repeat;
+	margin-left: 40px;
+}
+
+form {
+	background-color: #f2f2f2;
+	width: 500px;
+}
+
+.error {
+	color: red;
+	border: 1px solid red;
+	background-color: #ffd1d1;
+	padding-left: 5px;
+}
+
+.center {
+		text-align: center;
+}
+
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+}

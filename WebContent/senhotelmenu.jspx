@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Written by: Haley Chen -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+	<jsp:directive.page language="java" />
+	<div id="menu_header">
+		<div id="menu_logo">
+			<!-- Prevent single close tag -->
+		</div>
+		<div id="guest_info">
+			<p>
+				Welcome ${user.firstName} ${user.lastName}<br /> You have ${numRevs} room<c:if test="${numRevs ne 1}">s</c:if> for reservation
+			</p>
+		</div>
+	</div>
+	<div id="menu_navigate">
+		<ul>
+			<li><a class="heading" href="reserveroom.jspx" title="Reserve a room">Reserve Room</a></li>
+			<li><a class="heading" href="reservations.jspx" title="View reserved hotel rooms">View Hotel Rooms</a></li>
+			<li style="float:right"><a class="heading" href="logout.jspx" title="Logout">Logout</a></li>
+		</ul>
+	</div>
+</jsp:root>

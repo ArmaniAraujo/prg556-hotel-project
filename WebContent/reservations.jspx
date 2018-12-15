@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Written by: Armani Araujo -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+   xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+   version="2.0">
+	<jsp:directive.page language="java"
+		contentType="application/xhtml+xml; charset=UTF-8"
+		pageEncoding="UTF-8" />
+	<jsp:output omit-xml-declaration="no" doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.1//EN"
+		doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Reservations</title>
+<link rel="stylesheet" href="PeanutHotel.css" type="text/css" />
+<link rel="stylesheet" href="senhotelmenu.css" type="text/css" />
+</head>
+<body>
+
+	<jsp:include page="senhotelmenu.jspx" />
+	<h1>Your Reservations</h1>
+	
+		<c:choose>
+			<!-- still returns empty list if no reservations -->
+		<c:when test="${(fn:length(roomList) ge 1)}">		
+				<table>
+					<tr>
+						<th>Floor</th>
+						<th>Room #</th>
+						<th><!-- filler text --></th>
+					</tr>
+					
+				<c:forEach items="${resList}" var="element" varStatus="loop">
+					<tr>
+					<td>${floorList[loop.index]}</td>
+						<td>${element.roomNo}</td>
+						<td>
+							<form action="reservations.jspx" method="post">
+								<div class="register">
+									<input type="hidden" name="cancel_booking" value="${element.roomNo}" /> 
+									<input type="submit" name="cancel" value="Cancel booking" />
+								</div>
+							</form>
+						</td>
+					</tr>
+				</c:forEach>
+				</table>
+			</c:when>
+			<c:otherwise>
+				<p> Doesn't look like you have booked any rooms with us.<br />
+					Head to our <a href="reserveroom.jspx">Reservations page</a> where you can book a room!
+				</p>
+			</c:otherwise>
+		</c:choose>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+</body>
+	</html>
+</jsp:root>

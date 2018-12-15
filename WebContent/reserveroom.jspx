@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Written by: Haley Chen -->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+ 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	version="2.0">
+	<jsp:directive.page language="java"
+		contentType="application/xhtml+xml; charset=UTF-8"
+		pageEncoding="UTF-8" />
+	<jsp:output omit-xml-declaration="no" doctype-root-element="html"
+		doctype-public="-//W3C//DTD XHTML 1.1//EN"
+		doctype-system="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" />
+	<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Room Reservation</title>
+<link rel="stylesheet" href="PeanutHotel.css" type="text/css" />
+<link rel="stylesheet" href="senhotelmenu.css" type="text/css" />
+</head>
+<body>
+	<jsp:include page="senhotelmenu.jspx" />
+	<h1>Room Reservation</h1>
+	<table>
+		<!-- Headers -->
+		<tr>
+			<th>Floor</th>
+			<c:forEach var="unit" begin="1" end="${Hotel.roomsPerFloor}"><th>Room ${unit}</th></c:forEach> <!-- Unit numbers -->
+		</tr>
+		<!-- Rooms -->
+		<c:forEach var="floor" begin="0" end="${Hotel.floors - 1}">
+		<c:if test="${Hotel.floors - floor ne 13}"> <!-- Check for 13th floor -->
+			<tr>
+				<td>${Hotel.floors - floor}</td> <!-- Floor numbers -->
+				<c:forEach var="unit" items="${resArr[Hotel.floors - 1 - floor]}" varStatus="unitNum">
+				<td>
+					<c:choose>
+						<c:when test="${unit eq null}">
+							<form action="reserveroom.jspx" method="post">
+								<div>
+									<input type="hidden" name="available_room_floor" value="${Hotel.floors - floor}" /> <!-- Get floor number -->
+									<input type="hidden" name="available_room_unit" value="${unitNum.index + 1}" /> <!-- Get unit number -->
+									<input type="submit" name="submit" value="${(Hotel.floors - floor) * 100 + (unitNum.index + 1)}" />
+								</div>
+							</form>
+						</c:when>
+						<c:otherwise>Reserved</c:otherwise>
+					</c:choose>
+				</td>
+				</c:forEach>
+			</tr>
+		</c:if>
+		</c:forEach>
+	</table>
+</body>
+	</html>
+</jsp:root>
